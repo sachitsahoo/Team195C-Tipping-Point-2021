@@ -8,5 +8,5 @@ How to configure Vex robot:
 Connect motors their corresponding ports
 
 How to run code: open code in VexCode V5: 
-Run Gonbigweld.
+Open GonBigweld.v5code and download code. Run it off the controller and enjoy as your kidneys disappear. 
 
