@@ -1,7 +1,6 @@
 # Team195C-Tipping-Point-2021
 Vex Team 195C's amazing piece of code. Very poggers
 
-//How to configure Vex robot: 
 
 ![image](https://user-images.githubusercontent.com/84691857/142534788-a44bb23b-d900-40bb-b235-9e3e715b0aa8.png)
 
