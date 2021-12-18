@@ -33,6 +33,53 @@ drivetrain LeftTrain = drivetrain(LeftFrontMotor, LeftRearMotor);
 drivetrain RightTrain = drivetrain(RightFrontMotor, RightRearMotor);
 drivetrain TailTrain = drivetrain(RightTail, RightTail);
 
+int a = 1;
+void toggleP1(){
+  if (a == 1) {
+    B1.spin(forward);
+    R1.spin(forward);
+    R2.spin(forward);
+    B2.spin(forward);
+   a = 0;
+  }
+  else {
+    B1.stop();
+    R1.stop();
+    B2.stop();
+    R2.stop();
+   a = 1;
+  }
+}
+void toggleR1(){
+  if (a == 1) {
+    R1.spin(forward);
+    R2.spin(forward);
+   a = 0;
+  }
+  else {
+    B1.stop();
+    R1.stop();
+    B2.stop();
+    R2.stop();
+   a = 1;
+  }
+}
+
+void toggleB1(){
+  if (a == 1) {
+    B1.spin(forward);
+    B2.spin(forward);
+   a = 0;
+  }
+  else {
+    B1.stop();
+    R1.stop();
+    B2.stop();
+    R2.stop();
+   a = 1;
+  }
+}
+
 void autonomous(void){   //Automatic driving
 LeftTrain.driveFor(directionType::fwd, 30, distanceUnits::in, 100, velocityUnits::pct, false);
 RightTrain.driveFor(directionType::fwd, 30, distanceUnits::in, 100, velocityUnits::pct);
@@ -40,6 +87,8 @@ vex::task::sleep(100); //Gas Gas Gas
 }
 
 void userController(void) {
+ R1.setVelocity(50, pct);
+ B1.setVelocity(50, pct);
   while (1) {
 
  int x = Controller.Axis4.value();
@@ -52,6 +101,12 @@ void userController(void) {
  LeftRearMotor.spin(directionType::fwd, (xy), percentUnits::pct);
  RightFrontMotor.spin(directionType::fwd, (yx), percentUnits::pct);
  RightRearMotor.spin(directionType::fwd, (yx), percentUnits::pct);
+ R1.spin(directionType::fwd, (yx), percentUnits::pct);
+ B1.spin(directionType::fwd, (yx), percentUnits::pct);
+ R2.spin(directionType::fwd, (yx), percentUnits::pct);
+ B2.spin(directionType::fwd, (yx), percentUnits::pct);
+ Ground1.spin(directionType::fwd, (yx), percentUnits::pct);
+ Ground2.spin(directionType::fwd, (yx), percentUnits::pct);
  
  if( Controller.ButtonR2.pressing()){ //up
 RightTail.spin(directionType::rev, 100, velocityUnits::pct);
